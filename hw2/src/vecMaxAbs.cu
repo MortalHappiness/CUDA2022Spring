@@ -83,6 +83,11 @@ int main(int argc, char *argv[]) {
     h_A = (float *)malloc(size);
     h_B = (float *)malloc(sb); // contains the result from each block
 
+    if (h_A == NULL || h_B == NULL) {
+        fprintf(stderr, "Failed to allocate host vectors!\n");
+        exit(EXIT_FAILURE);
+    }
+
     // Initialize input vectors
     RandomInit(h_A, N);
 
