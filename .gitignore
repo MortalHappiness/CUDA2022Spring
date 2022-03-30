@@ -2,8 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/cuda
 # Edit at https://www.toptal.com/developers/gitignore?templates=cuda
 
+result
+
 hw1/src/MatAdd
-hw1/result
+hw2/src/vecMaxAbs
 
 ### CUDA ###
 *.i
