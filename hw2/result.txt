@@ -1,0 +1,12 @@
+Input time for GPU: 51.694366 (ms) 
+Processing time for GPU: 2.174720 (ms) 
+GPU Gflops: 37.669220
+Output time for GPU: 3.578720 (ms) 
+Total time for GPU: 57.447807 (ms) 
+Processing time for CPU: 143.994843 (ms) 
+CPU Gflops: 0.568909
+Speed up of GPU = 2.506533
+Check result:
+|gpu_ans - cpu_ans|=0.000000000000000e+00
+gpu_ans =9.999999403953552e-01
+cpu_ans =9.999999403953552e-01
