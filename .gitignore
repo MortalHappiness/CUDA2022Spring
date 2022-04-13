@@ -2,6 +2,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/cuda
 # Edit at https://www.toptal.com/developers/gitignore?templates=cuda
 
+.vscode
 result
 
 hw1/src/MatAdd
