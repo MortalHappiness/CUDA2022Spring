@@ -18,6 +18,7 @@ int MAX = 10000000;   // maximum iterations
 double eps = 1.0e-10; // stopping criterion
 
 float eps_0 = 8.854e-12; // vacuum permittivity
+double pi = 3.141592653589793;
 
 __global__ void poisson(float *phi_old, float *phi_new, float *rho, float *C,
                         bool flag) {
@@ -84,6 +85,31 @@ __global__ void poisson(float *phi_old, float *phi_new, float *rho, float *C,
                      gridDim.x * gridDim.y * blockIdx.z;
     if (cacheIndex == 0)
         C[blockIndex] = cache[0];
+}
+
+void compare_with_columb_law(float *field, int L) {
+    int M = L / 2;
+    int N = 0;
+    int site;
+    double r, diff, rmse = 0.0;
+    for (int x = 0; x < L; x++) {
+        for (int y = 0; y < L; y++) {
+            for (int z = 0; z < L; z++) {
+                if (x == 0 || x == L - 1 || y == 0 || y == L - 1 || z == 0 ||
+                    z == L - 1 || x == M && y == M && z == M) {
+                } else {
+                    site = x + y * L + z * L * L;
+                    r = sqrt((x - M) * (x - M) + (y - M) * (y - M) +
+                             (z - M) * (z - M));
+                    diff = 1 / (4 * pi * eps_0 * r) - field[site];
+                    rmse += diff * diff;
+                    ++N;
+                }
+            }
+        }
+    }
+    rmse = sqrt(rmse / N);
+    printf("\nRMSE compared to Columb's Law: %.2e\n", rmse);
 }
 
 int main(void) {
@@ -282,6 +308,8 @@ int main(void) {
             fprintf(outg, "\n");
         }
         fclose(outg);
+
+        compare_with_columb_law(g_new, L);
 
         printf("\n");
     }
