@@ -3,10 +3,11 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=cuda
 
 .vscode
-result
 
+hw1/result
 hw1/src/MatAdd
 hw2/src/vecMaxAbs
+hw3/src/poisson
 
 ### CUDA ###
 *.i
