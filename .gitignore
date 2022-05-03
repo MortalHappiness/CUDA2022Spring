@@ -9,6 +9,7 @@ hw1/src/MatAdd
 hw2/src/vecMaxAbs
 hw3/src/poisson
 hw4/src/dot_product/vecDot_ngpu
+hw4/src/heat_diffusion/heat_diffusion
 
 ### CUDA ###
 *.i
