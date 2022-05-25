@@ -1,0 +1,10 @@
+Monte-Carlo integration of one-dimensional integral
+Enter the number of samplings: 128
+Enter the number of GPUs: 2
+GPU device number: 0 1 
+Enter the number of threads per block: 32
+The number of blocks is 2
+
+Simple sampling:     0.2385351064 +/- 0.0050680023
+Importance sampling: 0.2514901202 +/- 0.0157394652
+Importance sampling (GPU): 0.2514900986 +/- 0.0157394648

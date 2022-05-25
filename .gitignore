@@ -12,6 +12,7 @@ hw4/src/dot_product/vecDot_ngpu
 hw4/src/heat_diffusion/heat_diffusion
 hw5/src/hist_1gpu_gmem
 hw5/src/hist_1gpu_shmem
+hw6/src/monte_carlo
 
 ### CUDA ###
 *.i
